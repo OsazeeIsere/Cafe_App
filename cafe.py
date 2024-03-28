@@ -12,6 +12,18 @@ def ShowMenu(menuitems):
     for items, price in menuitems.items():
         print(f"Menu: {items}, Price: £{price}")    
 
+
+def SelectMenu(menu, item, quantity):
+    """
+Calculate the total cost of the selected item(s).
+    """
+    if item in menu:
+        price = menu[item]
+        total_cost = price * quantity
+        return total_cost
+    else:
+        return None
+    
 menu = ['Coffee', 'Checken', 'Sandwiches', 'Soups and salads', 'Pastries and desserts'] # the cafe menu list
 
 stock = {'Coffee':12, # The dictionary holding the available stock of each item in the menu as key:value pairs
@@ -30,7 +42,19 @@ price = {'Coffee':3, # The dictionary holding the prices of each item in the men
         }
 # Here we call the method to display the menu
 ShowMenu(price)
-total_stock = 0.0
+
+# Get user input
+selected_item = input("Enter the item you want to buy: ")
+quantity = int(input("Enter the quantity you want to buy: "))
+
+ # Calculate cost
+total_cost = SelectMenu(price, selected_item, quantity)
+if total_cost is not None:
+    print(f"Total cost for {quantity} {selected_item}(s): ${total_cost}")
+else:
+    print("Invalid item selected.")
+
+""" total_stock = 0.0
 
 # looping through the menu list to get each item
 for item in menu:
@@ -39,4 +63,4 @@ for item in menu:
 
  
 total_stock = round(total_stock,2) # the next statement Rounds up total stock value to two decimal places
-print(f"The total stock in the cafe is worth: £{total_stock}p") 
+print(f"The total stock in the cafe is worth: £{total_stock}p")  """
