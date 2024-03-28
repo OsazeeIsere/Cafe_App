@@ -6,6 +6,11 @@ stock of each item and another dictionary to hold the corresponding prices of th
 Eventually, the total worth of the stock is calculated and printed
 """
 # The main program brgins
+def ShowMenu(menuitems):
+    
+    # Print keys and values formatted
+    for items, price in menuitems.items():
+        print(f"Menu: {items}, Price: £{price}")    
 
 menu = ['Coffee', 'Checken', 'Sandwiches', 'Soups and salads', 'Pastries and desserts'] # the cafe menu list
 
@@ -23,7 +28,8 @@ price = {'Coffee':3, # The dictionary holding the prices of each item in the men
          'Soups and salads': 7,
          'Pastries and desserts': 5     
         }
-
+# Here we call the method to display the menu
+ShowMenu(price)
 total_stock = 0.0
 
 # looping through the menu list to get each item
